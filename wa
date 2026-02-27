@@ -2381,3 +2381,7 @@ task.spawn(function()
         })
     end
 end)
+
+Library.ToggleKey = Enum.KeyCode.LeftControl
+
+return Library
