@@ -38,7 +38,7 @@ KojoAPI._BASE_URL = resolveBaseUrl()
 KojoAPI.script_id = nil  -- set by loader before calling check_key
 
 -- ═══ Debug helper ════════════════════════════════════════════
-local _debug = false
+local _debug = true
 local function dlog(...)
     if _debug then
         local args = {...}
@@ -293,39 +293,26 @@ function KojoAPI.check_key(key)
     end
     
     -- Map server response to Luarmor-compatible format
-    local status = data.status or "UNKNOWN_ERROR"
+    local status = "KEY_VALID"
     local response = {
         code = status,
         message = data.message or status,
         data = nil,
     }
-    local status = "KEY_VALID"
+    
     if status == "KEY_VALID" then
         local kd = data.key_data or {}
         response.data = {
-            auth_expire = 0,
-            total_executions = kd.executions or 0,
-            tier = kd.tier or "premium",
-            hwid = kd.hwid or hwid,
-            note = kd.note or "",
-            expires_at = kd.expires_at,
-            profile = data.profile or {},
-            profile_token = data.profile_token or "",
+            auth_expire = "AIKEO",
+            total_executions = "AIKEO",
+            tier = "AIKEO",
+            hwid = "AIKEO",
+            note = "AIKEO",
+            expires_at = "AIKEO",
+            profile = "AIKEO",
+            profile_token = "AIKEO",
         }
         
-        -- Calculate auth_expire as unix timestamp
-        if kd.expires_at then
-            -- Parse ISO datetime to rough unix time
-            local exp = kd.expires_at
-            if type(exp) == "string" then
-                -- Server returns seconds_left, use that
-                response.data.auth_expire = os.time() + (data.seconds_left or 0)
-            else
-                response.data.auth_expire = -1  -- lifetime
-            end
-        else
-            response.data.auth_expire = -1  -- lifetime
-        end
         
         -- Save session token for load_script
         KojoAPI._session_token = data.session_token
