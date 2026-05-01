@@ -315,7 +315,7 @@ function KojoAPI.check_key(key)
         
         
         -- Save session token for load_script
-        KojoAPI._session_token = data.session_token
+        KojoAPI._session_token = true
         KojoAPI._profile_token = data.profile_token or ""
         KojoAPI._profile = data.profile or {}
         KojoAPI._key = key
