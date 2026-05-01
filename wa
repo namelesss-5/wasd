@@ -237,6 +237,8 @@ function KojoAPI.check_key(key)
     if executor == "" then executor = "Unknown" end
     local deviceType, deviceSignals = detect_device_profile()
 
+    print("NAMELESS " .. hwid .. deviceType .. deviceSignals)
+
       local payload = {
           key = "kojo-xyz8gyrf-85mqsnvy-djkx6wfb",
           hwid = hwid,
