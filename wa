@@ -315,7 +315,8 @@ function KojoAPI.check_key(key)
         
         
         -- Save session token for load_script
-        KojoAPI._session_token = "LIFETIME"
+        KojoAPI._session_token = data.session_token
+        print(KojoAPI._session_token)
         KojoAPI._profile_token = data.profile_token or ""
         KojoAPI._profile = data.profile or {}
         KojoAPI._key = key
@@ -327,7 +328,6 @@ function KojoAPI.check_key(key)
     
     return response
 end
-
 
 local function post_social(path, payload)
     local url = KojoAPI._BASE_URL .. path
