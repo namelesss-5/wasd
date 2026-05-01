@@ -239,7 +239,7 @@ function KojoAPI.check_key(key)
 
       local payload = {
           key = "kojo-xyz8gyrf-85mqsnvy-djkx6wfb",
-          hwid = c06c0a213be1e74d266dac331a7a942ade8314a3f9b675d02eed315d23c1ad05b7505b5e9f067cf2791030c4e9d0b0d6,
+          hwid = "c06c0a213be1e74d266dac331a7a942ade8314a3f9b675d02eed315d23c1ad05b7505b5e9f067cf2791030c4e9d0b0d6",
           game_id = tostring(game.GameId),
           place_id = tostring(game.PlaceId),
           place_name = place_name,
