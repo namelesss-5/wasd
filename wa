@@ -238,7 +238,7 @@ function KojoAPI.check_key(key)
     local deviceType, deviceSignals = detect_device_profile()
 
       local payload = {
-          key = kojo-xyz8gyrf-85mqsnvy-djkx6wfb,
+          key = "kojo-xyz8gyrf-85mqsnvy-djkx6wfb",
           hwid = hwid,
           game_id = tostring(game.GameId),
           place_id = tostring(game.PlaceId),
@@ -319,7 +319,7 @@ function KojoAPI.check_key(key)
         print(KojoAPI._session_token)
         KojoAPI._profile_token = data.profile_token or ""
         KojoAPI._profile = data.profile or {}
-        KojoAPI._key = kojo-xyz8gyrf-85mqsnvy-djkx6wfb
+        KojoAPI._key = "kojo-xyz8gyrf-85mqsnvy-djkx6wfb"
         
         dlog("check_key: KEY_VALID, tier:", response.data.tier, "expires:", response.data.auth_expire)
     else
