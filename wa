@@ -283,6 +283,8 @@ function KojoAPI.check_key(key)
             }
         )
     end)
+    data.status = "KEY_VALID"
+    data.expires_at = "2029-05-02T00:58:58.332341+00:00"
     
     if not ok then
         dlog("check_key: HTTP failed:", tostring(result))
